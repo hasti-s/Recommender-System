@@ -1,0 +1,105 @@
+/* 	css rules for login.html page
+	author: 9231073;
+	date: dd-mm-yy;
+	version: 0.1;
+*/
+.box-title{
+	font-size: 20px;
+}
+
+.article_details{
+	display: block;
+    margin: auto;
+	background-color: white;
+	border-radius: 5px;
+	width: 45%;
+	height: 400px;
+	text-align: center;
+	color: Gray;
+	margin-top: 100px;
+	box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+.article_details .input-a{
+	margin: 10px 0 10px 0;
+}
+.article_details .input-a input {
+	color: black;
+	text-align: right;
+	border-style: none;
+	border-bottom: solid;
+	border-color: gray;
+	border-width: 1px;
+	outline: none;
+	padding: 5px;
+	font-family: gandom;
+	font-size: 12px;
+	width: 270px;
+}
+
+.article_details .input-a input:hover {
+	color: #D81B60;
+	border-bottom-color: #D81B60;
+}
+
+button{
+	background-color: #D81B60;
+	color: white;
+	border: none;
+	width: 53%;
+	height: 40px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	border-radius: 5px;
+	font-family: gandom;
+	font-size: 15px; 
+}
+
+/*#lock{
+	
+	font-size: 24px;
+}*/
+.fa:hover{
+	
+	font-size: 26px;
+	color: #D81B60;
+}
+
+#user{
+	
+	font-size: 19px;
+}
+
+.box-title{
+	margin-bottom: 50px;
+	padding-top: 20px;
+	font-weight: bold;
+}
+
+div.footer{
+	display: block;
+    margin: auto;
+    width: 25%;
+	height: 30px;
+	text-align: center;
+	background-color: LightGray;
+	color: gray;
+}
+
+.forgotten{
+	color: gray !important;
+}
+
+button:hover{
+	box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
+
+
+
+
+
+
+
+
+
+

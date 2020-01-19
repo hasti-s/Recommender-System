@@ -1,0 +1,33 @@
+/* 	global css rules in hw2 pages like font-family (@font-face), boxes, and login-register inputs
+	author: 9231073;
+	date: dd-mm-yy;
+	version: 0.1;
+*/
+
+@font-face {
+  font-family: gandom;
+  src: url('gandom.eot');
+  src: url('gandom.eot?#iefix') format('embedded-opentype'),
+       url('gandom.woff') format('woff'),
+       url('gandom.ttf') format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: gandom;
+  src: url('gandom-bold.eot');
+  src: url('gandom-bold.eot?#iefix') format('embedded-opentype'),
+       url('gandom-bold.woff') format('woff'),
+       url('gandom-bold.ttf') format('truetype');
+  font-weight: bold;
+}
+body {
+	background-image: url("../assets/images/4374.jpg");
+	font-family: gandom;
+	margin: 0;
+
+}
+
+
+
+
+

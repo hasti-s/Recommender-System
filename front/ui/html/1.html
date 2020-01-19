@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html lang="fa">
+	<head>
+	  <meta charset="utf-8">
+
+	  <title>سیستم پیشنهاد دهنده داور برای مقالات علمی</title>
+	  <meta name="description" content="سیستم پیشنهاد دهنده وادر برای مقالات علمی">
+
+	  <link rel="stylesheet" href="../styles/global.css">
+	  <link rel="stylesheet" href="../styles/login.css">
+	  <link rel="stylesheet" href="../assets/fonts/fontawesome/font-awesome.css">
+	  <script>
+          	function search() {
+				var firstName = document.querySelector('#first_name').value
+				var lastName = document.querySelector('#last_name').value
+				var article = document.querySelector('#article_title').value
+				console.log(postAsync('http://localhost:5000/','article='+article+'&lName='+lastName+
+				'&fName='+firstName))
+            }
+
+            function postAsync(url2get, sendstr)    {
+                var req;
+                if (window.XMLHttpRequest) {
+                    req = new XMLHttpRequest();
+                } else if (window.ActiveXObject) {
+                    req = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (req != undefined) {
+                    // req.overrideMimeType("application/json"); // if request result is JSON
+                    try {
+                        req.open("POST", url2get, false); // 3rd param is whether "async"
+                    }
+                    catch(err) {
+                        alert("couldnt complete request. Is JS enabled for that domain?\\n\\n" + err.message);
+                        return false;
+                    }
+                    req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    req.send(sendstr); // param string only used for POST
+
+                    if (req.readyState == 4) { // only if req is "loaded"
+                        if (req.status == 200)  // only if "OK"
+                        {
+                            var myObj = JSON.parse(req.responseText);
+                            document.querySelector('#form').style.display = 'none'
+                            document.querySelector('#result').style.display = 'block'
+                            document.querySelector('#judges').innerHTML = myObj.best_judge
+                            document.querySelector('#link').href = myObj.url
+
+                            return req.responseText ;
+                        }
+                        else    { return "XHR error: " + req.status +" "+req.statusText; }
+                    }
+                }
+                alert("req for getAsync is undefined");
+            }
+
+            function refresh() {
+                document.querySelector('#form').style.display = 'block'
+                document.querySelector('#result').style.display = 'none'
+                document.querySelector('#first_name').value = ''
+                document.querySelector('#last_name').value = ''
+                document.querySelector('#article_title').value = ''
+            }
+	  </script>
+	</head>
+
+	<body>
+		<form style="display: block" id="form" class="article_details">
+		  <div class="box-title">ورود اطلاعات</div>
+		  لطفا اطلاعات را به انگلیسی وارد نمایید<br>
+	  		<div class='input-a'>
+	  			<input type="text" id="first_name" placeholder="نام">
+	  		</div>
+	  		<div class='input-a'>
+	  			<input type="text" id="last_name" placeholder="نام خانوادگی">
+	  		</div>
+	  		<div class='input-a'>
+	  			<input type="text" id="article_title" placeholder="عنوان مقاله">
+	  		</div>
+		  	<div>
+		  		<button onclick="search()" type="button">درخواست داور</button>
+		  	</div>
+		</form>
+
+		<div style="display: none" id="result" class="article_details">
+			<div class="box-title">داور پیشنهادی</div>
+			:داوران زیر برای مقاله شما پیشنهاد شده اند<br>
+			<a id="link"><p id="judges"></p></a>
+
+			<div>
+				<button onclick="refresh()" href="1.html">ورود مقاله دیگر</button>
+			</div>
+		</div>
+	</body>
+	
+</html>
